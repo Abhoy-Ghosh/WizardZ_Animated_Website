@@ -51,5 +51,5 @@ tl.from(".marque",{
 
 }
 
-// section1Animation();
+section1Animation();
 
