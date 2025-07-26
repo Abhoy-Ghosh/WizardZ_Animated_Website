@@ -11,14 +11,12 @@ function section1Animation() {
     stagger: 0.2,
   });
 
-  tl.from(
-    ".centerPart1 h1",
-    {
+  tl.from(".centerPart1 h1",{
       x: -200,
       opacity: 0,
       duration: 0.5,
     },
-    "*=0.3"
+    "-=0.3"
   );
 
   tl.from(".centerPart1 p", {
@@ -60,17 +58,25 @@ function section1Animation() {
     },
     "-=1"
   );
+
+
 }
 
 section1Animation();
 
-//  gsap.from('.accordion-item',{
-//       opacity:1,
-//       x:-200,
-//       duration:5,
-//       stagger: 0.5,
-//       ease:"bounce.in"
-//       })
+document.querySelectorAll(".accordion-item").forEach(item => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top 85%", // trigger when item is ~85% into viewport
+      toggleActions: "play none none none",
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.out"
+  });
+});
 
 const activeItem = document.querySelector(".accordion-item.active");
 if (activeItem) {
@@ -101,3 +107,5 @@ items.forEach((item) => {
     }
   });
 });
+
+// const cursor = document.querySelector(".cursor") 
