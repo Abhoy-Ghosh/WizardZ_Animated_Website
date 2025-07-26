@@ -6,6 +6,7 @@
 
 html,
 body {
+  cursor: none;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
@@ -454,9 +455,11 @@ form #msg{
   position: absolute;
   height: 4rem;
   width: 4rem;
-  background-color: #a63d3d;
   border-radius: 50%;
   border: 4px black solid;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
 }
 
 .cursor img{

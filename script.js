@@ -108,4 +108,14 @@ items.forEach((item) => {
   });
 });
 
-// const cursor = document.querySelector(".cursor") 
+const body = document.querySelector("body") 
+const cursor = document.querySelector(".cursor")
+body.addEventListener("mousemove",(e) => {
+  gsap.to(cursor,{
+    x:`${e.clientX}px`,
+    y: `${e.clientY}px`,
+    ease: "linear",
+    duration: 0.2,
+  }
+)
+})
