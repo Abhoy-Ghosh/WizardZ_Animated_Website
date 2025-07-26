@@ -1,5 +1,19 @@
 gsap.registerPlugin(ScrollTrigger);
 
+function customCursor(){
+const body = document.querySelector("body");
+const cursor = document.querySelector(".cursor");
+body.addEventListener("mousemove", (e) => {
+  gsap.to(cursor, {
+    x: `${e.clientX}px`,
+    y: `${e.clientY}px`,
+    ease: "linear",
+    duration: 0.2,
+  });
+});
+}
+
+
 function section1Animation() {
   var tl = gsap.timeline();
 
@@ -48,9 +62,7 @@ function section1Animation() {
     duration: 0.6,
   });
 
-  tl.from(
-    ".marque",
-    {
+  tl.from(".marque",{
       xPercent: -50,
       repeat: -1,
       duration: 12,
@@ -58,13 +70,91 @@ function section1Animation() {
     },
     "-=1"
   );
-
-
 }
 
-section1Animation();
 
-document.querySelectorAll(".accordion-item").forEach(item => {
+
+function section2Animation() {
+  var tl2 = gsap.timeline({scrollTrigger:{
+    trigger:".section2",
+    scroller: "body",
+    start: "top 50%",
+    end: "top -90%",
+    scrub:2,
+  }
+});
+ 
+  tl2.from(".services",{
+  y: 30,
+  opacity: 0,
+  duration: 0.5,
+})
+
+  tl2.from(".line1.left",{
+    x:-200,
+    duration: 1,
+    rotate: -45,
+    opacity: 0,
+  },"anim1")
+
+   tl2.from(".line1.right",{
+    x:200,
+    duration: 1,
+    rotate: 45,
+    opacity: 0,
+  },"anim1")
+
+
+    tl2.from(".line2.left",{
+    x:-300,
+    duration: 1,
+    opacity: 0,
+  },"anim2")
+
+   tl2.from(".line2.right",{
+    x:300,
+    duration: 1,
+    opacity: 0,
+  },"anim2")
+
+
+    tl2.from(".line3.left",{
+    x:-300,
+    duration: 1,
+    rotate: 45,
+    opacity: 0,
+  },"anim3")
+
+   tl2.from(".line3.right",{
+    x:300,
+    duration: 1,
+    rotate: -45,
+    opacity: 0,
+  },"anim3")
+}
+
+
+function section3Animation() {
+  // Set visible state before scroll affects it
+  gsap.set(".section3 .services", { opacity: 1, y: 0 });
+
+  var tl3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section3",
+      start: "top 80%",
+      end: "top 20%",
+      scrub: 1,
+    },
+  });
+
+  tl3.from(".section3 .services", {
+    y: 80,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.out"
+  });
+
+  document.querySelectorAll(".accordion-item").forEach((item) => {
   gsap.from(item, {
     scrollTrigger: {
       trigger: item,
@@ -74,9 +164,32 @@ document.querySelectorAll(".accordion-item").forEach(item => {
     y: 50,
     opacity: 0,
     duration: 0.6,
-    ease: "power2.out"
+    ease: "power2.out",
   });
 });
+}
+
+function section4Animation() {
+  // Set visible state before scroll affects it
+  gsap.set(".section4 .services", { opacity: 1, y: 0 });
+
+  var tl3 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section4",
+      start: "top 80%",
+      end: "top 20%",
+      scrub: 1,
+      // markers: true,
+    },
+  });
+
+  tl3.from(".section4 .services", {
+    y: 80,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.out"
+  });
+}
 
 const activeItem = document.querySelector(".accordion-item.active");
 if (activeItem) {
@@ -108,14 +221,9 @@ items.forEach((item) => {
   });
 });
 
-const body = document.querySelector("body") 
-const cursor = document.querySelector(".cursor")
-body.addEventListener("mousemove",(e) => {
-  gsap.to(cursor,{
-    x:`${e.clientX}px`,
-    y: `${e.clientY}px`,
-    ease: "linear",
-    duration: 0.2,
-  }
-)
-})
+
+customCursor();
+section1Animation();
+section2Animation();
+section3Animation();
+section4Animation();
