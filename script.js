@@ -154,12 +154,16 @@ function section3Animation() {
     ease: "power2.out"
   });
 
+
+}
+
   document.querySelectorAll(".accordion-item").forEach((item) => {
   gsap.from(item, {
     scrollTrigger: {
       trigger: item,
       start: "top 85%", // trigger when item is ~85% into viewport
       toggleActions: "play none none none",
+      scrub: 2,
     },
     y: 50,
     opacity: 0,
@@ -167,29 +171,6 @@ function section3Animation() {
     ease: "power2.out",
   });
 });
-}
-
-function section4Animation() {
-  // Set visible state before scroll affects it
-  gsap.set(".section4 .services", { opacity: 1, y: 0 });
-
-  var tl3 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".section4",
-      start: "top 80%",
-      end: "top 20%",
-      scrub: 1,
-      // markers: true,
-    },
-  });
-
-  tl3.from(".section4 .services", {
-    y: 80,
-    opacity: 0,
-    duration: 0.6,
-    ease: "power2.out"
-  });
-}
 
 const activeItem = document.querySelector(".accordion-item.active");
 if (activeItem) {
@@ -220,6 +201,66 @@ items.forEach((item) => {
     }
   });
 });
+ 
+
+function section4Animation() {
+  // Set visible state before scroll affects it
+  gsap.set(".section4 .services", { opacity: 1, y: 0 });
+
+  var tl4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section4",
+      start: "top 80%",
+      end: "top 20%",
+      scrub: 1,
+      // markers: true,
+    },
+  });
+
+  tl4.from(".section4 .services", {
+    y: 80,
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.out"
+  });
+}
+
+
+
+
+function footerAnimation(){
+  var tlF = gsap.timeline({
+  scrollTrigger:{
+    scroller: "body",
+    trigger: "footer",
+    start: "top 90%",
+    end: "top 60%",
+ 
+  }
+})
+
+tlF.from('footer #first',{
+  opacity:0,
+  duration: 0.8,
+  x:"-50",
+  ease:"linear"
+})
+
+tlF.from('footer #second',{
+  opacity:0,
+  duration: 0.8,
+  x:"-100",
+ ease:"linear"
+})
+
+
+tlF.from('footer #third',{
+  opacity:0,
+  duration: 0.8,
+  x:"-200",
+  ease:"linear"
+})
+}
 
 
 customCursor();
@@ -227,3 +268,4 @@ section1Animation();
 section2Animation();
 section3Animation();
 section4Animation();
+footerAnimation()
