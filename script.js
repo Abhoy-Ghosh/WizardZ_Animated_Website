@@ -269,3 +269,34 @@ section2Animation();
 section3Animation();
 section4Animation();
 footerAnimation()
+
+const toggleBtn = document.getElementById("darkModeToggle");
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  // Optional: change button icon
+   toggleBtn.innerHTML = document.body.classList.contains("dark-mode")
+    ? '<i class="ri-sun-line"></i>'
+    : '<i class="ri-moon-fill"></i>';
+
+
+    if(document.body.classList.contains("dark-mode")){
+      document.querySelector(".cursor img").src="./arrowWhite.png"
+    }else{
+        document.querySelector(".cursor img").src="./arrow.png"
+    }
+});
+
+document.getElementById("scrollToServices").addEventListener("click", () => {
+  const target = document.getElementById("section2-services");
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+
+    // Delay refresh to allow smooth scroll to finish (~1s)
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 1000); // adjust this if your scroll is faster/slower
+  }
+});
+

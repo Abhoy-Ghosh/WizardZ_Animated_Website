@@ -13,6 +13,27 @@ body {
   background-color: #fffff5;
 }
 
+
+.cursor {
+  position: absolute;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  border: 4px black solid;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  width: 80%;
+}
+
 section {
   height: 100%;
   width: 100%;
@@ -268,10 +289,10 @@ nav button:hover{
 }
 
 
-.learnMore h3:hover{
+.learnMore:hover {
   color: #88db23;
   scale: 1.1;
-  transition: all ease-in 0.2s;
+  transition: all ease 0.2s;
 
 }
 
@@ -462,25 +483,6 @@ form #msg {
 }
 
 
-.cursor {
-  position: absolute;
-  height: 3.5rem;
-  width: 3.5rem;
-  border-radius: 50%;
-  border: 4px black solid;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-}
-
-.cursor img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 80%;
-  width: 80%;
-}
 
 footer {
   width: 91vw;
@@ -522,16 +524,21 @@ footer #third {
   border-bottom: 1px solid white;
   font-weight: 500;
 }
- #first p{
+#first p{
   padding: 1rem;
   font-size: 1.2rem;
   line-height: 2rem;
   font-weight: 100;
 }
 
+#first h3 i{
+   display: inline-block;
+  rotate: 45deg;
+}
+
 #second p{
-  padding: .6rem 0;
-  font-size: 1rem;
+  padding: .7rem 0;
+  font-size: 1.02rem;
   /* line-height: 2rem; */
 }
 
@@ -554,14 +561,18 @@ footer #third {
  
 }
 
-#third a:hover {
+#third p:hover a,
+#third p:hover i {
   color: #b9ff66;
-  scale: 1.2;
-  text-decoration: underline; 
+  scale:1.2;
+  text-decoration: underline;
+  transition: all ease 0.3s;
+  cursor: pointer;
 }
 
 
-#third p{
+
+#third h4{
   /* position: absolute; */
   bottom: 0;
   margin-top: 2rem;
@@ -581,3 +592,194 @@ body > .gsap-marker-end {
   position: fixed !important;
   z-index: 9999;
 } */
+
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark-mode nav,
+body.dark-mode .elem,
+body.dark-mode .accordion-item,
+body.dark-mode .contact-card,
+body.dark-mode footer
+body.dark-mode nav button {
+  background-color: #1f1f1f;
+  color: #fffff5;
+  border-color: #ffffff;
+}
+
+body.dark-mode .section1Bottom img{
+  background-color: #88db23;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  width: 10rem;
+  height: 4rem;
+}
+body.dark-mode .black {
+  background-color: #333;
+}
+
+body.dark-mode .elemPart1 h2 span,
+body.dark-mode .services h3 {
+  background: #49d249;
+}
+
+body.dark-mode .toggle-btn {
+  background: #1f1f1f;
+  color: white;
+}
+
+body.dark-mode .cursor {
+  border-color: white;
+}
+
+body.dark-mode form button {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode button:hover {
+  background-color: #333;
+  color: #67f967;
+}
+
+
+/* ✅ Large tablets and small laptops (1024px and below) */
+@media (max-width: 1024px) {
+  .center {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .centerPart1,
+  .centerPart2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .centerPart2 img {
+    right: 0;
+    width: 100%;
+  }
+
+  .services {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .elem {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-card {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  form input,
+  form button {
+    width: 90%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+    padding: 2rem;
+  }
+
+  #third {
+    position: relative;
+    bottom: unset;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+
+/* ✅ Tablets and phablets (768px and below) */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .navRight {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .centerPart1 h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .services p {
+    width: 100%;
+  }
+
+  .accordion-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* ✅ Mobile devices (480px and below) */
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  .navRight h4,
+  nav button {
+    font-size: 1.1rem;
+  }
+
+  .centerPart1 h1 {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+  }
+
+  .centerPart1 p {
+    font-size: 1rem;
+  }
+
+  .centerPart1 button {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
+
+  .section1Bottom {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .elemPart1 h2 {
+    font-size: 1.8rem;
+  }
+
+  .accordion-header h3 {
+    font-size: 1.5rem;
+  }
+
+  form input,
+  form button {
+    width: 100%;
+  }
+
+  #third a {
+    font-size: 1rem;
+  }
+}
+
