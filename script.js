@@ -61,7 +61,7 @@ function section1Animation() {
     duration: 0.5,
     stagger: 0.15,
     duration: 0.6,
-    delay: 0.7,
+    delay: 0.1,
   });
 
   tl.from(

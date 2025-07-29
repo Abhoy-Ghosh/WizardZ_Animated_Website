@@ -652,7 +652,7 @@ body.dark-mode button:hover {
 }
 
 
-/* Large tablets and small laptops (1024px and below) */
+/*Large tablets and small laptops (1024px and below) */
 @media (max-width: 1024px) {
   .center {
     flex-direction: column;
@@ -741,7 +741,7 @@ body.dark-mode button:hover {
 }
 
 
-/*  Mobile devices (480px and below) */
+/*Mobile devices (480px and below) */
 @media (max-width: 480px) {
   nav h1 {
     font-size: 2rem;
