@@ -8,7 +8,7 @@ html,
 body {
   cursor: none;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
   background-color: #fffff5;
 }
@@ -65,12 +65,18 @@ nav h1 i {
   display: inline-block;
   rotate: 45deg;
   margin-right: 0.3rem;
+  
 }
 
 .navRight h4 {
   font-size: 1.5rem;
   font-weight: 500;
   /* margin-right: 1rem; */
+}
+
+.navRight #darkModeToggle{
+  cursor: pointer;
+
 }
 
 nav button {
@@ -646,7 +652,7 @@ body.dark-mode button:hover {
 }
 
 
-/* ✅ Large tablets and small laptops (1024px and below) */
+/* Large tablets and small laptops (1024px and below) */
 @media (max-width: 1024px) {
   .center {
     flex-direction: column;
@@ -706,7 +712,7 @@ body.dark-mode button:hover {
 }
 
 
-/* ✅ Tablets and phablets (768px and below) */
+/*Tablets and phablets (768px and below) */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -735,7 +741,7 @@ body.dark-mode button:hover {
 }
 
 
-/* ✅ Mobile devices (480px and below) */
+/*  Mobile devices (480px and below) */
 @media (max-width: 480px) {
   nav h1 {
     font-size: 2rem;
